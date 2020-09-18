@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .first {
+        float: left;
+      }
+
+      .name {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 会议室 -->
+    <div class="first">
+      <h3>会议室</h3>
+
+      <div class="name">
+        <input type="text" id="input01" />
+        <button id="btn01">提交</button>
+      </div>
+
+      <div class="time">
+        <input type="text" id="input02" />
+      </div>
+      <p></p>
+
+      <ul id="ul01"></ul>
+    </div>
+
+    <!-- 小仓库 -->
+    <div class="first second">
+      <h3>小仓库</h3>
+
+      <div class="name">
+        <input type="text" id="input03" />
+        <button id="btn02">提交</button>
+      </div>
+
+      <div class="time">
+        <input type="text" id="input04" />
+      </div>
+      <p id="p02"></p>
+
+      <ul id="ul02"></ul>
+    </div>
+
+    <script>
+      var input01 = document.getElementById("input01");
+      var input02 = document.getElementById("input02");
+      var btn01 = document.getElementById("btn01");
+      var ul01 = document.getElementById("ul01");
+      var arrfirst = new Array();
+
+      var p01 = document.querySelector("p");
+
+      btn01.addEventListener(
+        "click",
+        function () {
+          if (input01.value == "") {
+            return 0;
+          }
+          if (input02.value == "") {
+            alert("请输入时间段！");
+          }
+
+          if (arrfirst.length == 0) {
+            arrfirst.push({
+              name: input01.value,
+              time: input02.value,
+            });
+            var li = document.createElement("li");
+            li.innerHTML = arrfirst[0].name + "   " + arrfirst[0].time;
+            if (input02.value != "") {
+              ul01.appendChild(li);
+            }
+          } else {
+            var reg = /[0-9][0-9]/g;
+
+            var arr = input02.value.match(reg);
+            //   console.log(arr);
+            var arrstr1 = "" + arr[0] + "" + arr[1];
+            // console.log(arrstr1);
+            var arrstr2 = "" + arr[2] + "" + arr[3];
+
+            var flag = 1;
+            for (var i = 0; i < arrfirst.length; i++) {
+              flag = 1;
+              var es = arrfirst[i].time.match(reg);
+              var esstr1 = "" + es[0] + "" + es[1];
+              var esstr2 = "" + es[2] + "" + es[3];
+
+              if (arrstr1 < esstr1 && arrstr2 < esstr2 && arrstr2 > esstr1) {
+                // alert('该时间段已被预约！不可再预约！');
+                p01.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (arrstr1 >= esstr1 && arrstr2 <= esstr2) {
+                // alert("该时间段已被预约！不可再预约！");
+                p01.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (arrstr1 < esstr2 && arrstr2 > esstr2 && arrstr1 > esstr1) {
+                // alert("该时间段已被预约！不可再预约！");
+                p01.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (
+                arrstr1 < esstr1 &&
+                arrstr1 < esstr2 &&
+                arrstr2 > esstr2 &&
+                arrstr2 > esstr1
+              ) {
+                p01.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+            }
+
+            if (flag == 1) {
+              arrfirst.push({
+                name: input01.value,
+                time: input02.value,
+              });
+              var li = document.createElement("li");
+              li.innerHTML =
+                arrfirst[arrfirst.length - 1].name +
+                "   " +
+                arrfirst[arrfirst.length - 1].time;
+              // ul01.appendChild(li);
+              if (input02.value != "") {
+                ul01.appendChild(li);
+              }
+            }
+
+            // console.log(arrfirst);
+          }
+
+          //    console.log(arrfirst);
+
+          // }
+        },
+        false
+      );
+
+      input01.addEventListener(
+        "focus",
+        function () {
+          input01.value = "";
+          input02.value = "";
+
+          p01.innerHTML = "";
+        },
+        false
+      );
+      input02.addEventListener(
+        "focus",
+        function () {
+          // input01.value = "";
+          input02.value = "";
+          p01.innerHTML = "";
+        },
+        false
+      );
+
+      // 小仓库
+      var input03 = document.getElementById("input03");
+      var input04 = document.getElementById("input04");
+      var btn02 = document.getElementById("btn02");
+      var ul02 = document.getElementById("ul02");
+      var arrfirst2 = new Array();
+
+      var p02 = document.getElementById("p02");
+
+      btn02.addEventListener(
+        "click",
+        function () {
+          if (input03.value == "") {
+            return 0;
+          }
+          if (input04.value == "") {
+            alert("请输入时间段！");
+          }
+
+          if (arrfirst2.length == 0) {
+            arrfirst2.push({
+              name: input03.value,
+              time: input04.value,
+            });
+            var li = document.createElement("li");
+            li.innerHTML = arrfirst2[0].name + "   " + arrfirst2[0].time;
+            if (input03.value != "") {
+              ul02.appendChild(li);
+            }
+          } else {
+            var reg = /[0-9][0-9]/g;
+
+            var arr = input04.value.match(reg);
+            //   console.log(arr);
+            var arrstr1 = "" + arr[0] + "" + arr[1];
+            // console.log(arrstr1);
+            var arrstr2 = "" + arr[2] + "" + arr[3];
+
+            var flag = 1;
+            for (var i = 0; i < arrfirst2.length; i++) {
+              flag = 1;
+              var es = arrfirst2[i].time.match(reg);
+              var esstr1 = "" + es[0] + "" + es[1];
+              var esstr2 = "" + es[2] + "" + es[3];
+
+              if (arrstr1 < esstr1 && arrstr2 < esstr2 && arrstr2 > esstr1) {
+                // alert('该时间段已被预约！不可再预约！');
+                p02.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (arrstr1 >= esstr1 && arrstr2 <= esstr2) {
+                // alert("该时间段已被预约！不可再预约！");
+                p02.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (arrstr1 < esstr2 && arrstr2 > esstr2 && arrstr1 > esstr1) {
+                // alert("该时间段已被预约！不可再预约！");
+                p02.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+              if (
+                arrstr1 < esstr1 &&
+                arrstr1 < esstr2 &&
+                arrstr2 > esstr2 &&
+                arrstr2 > esstr1
+              ) {
+                p02.innerHTML = "该时间段已被预约！不可再预约！";
+                flag = 0;
+                break;
+              }
+            }
+
+            if (flag == 1) {
+              arrfirst2.push({
+                name: input03.value,
+                time: input04.value,
+              });
+              var li = document.createElement("li");
+              li.innerHTML =
+                arrfirst2[arrfirst2.length - 1].name +
+                "   " +
+                arrfirst2[arrfirst2.length - 1].time;
+              // ul01.appendChild(li);
+              if (input04.value != "") {
+                ul02.appendChild(li);
+              }
+            }
+
+            // console.log(arrfirst);
+          }
+
+          //    console.log(arrfirst);
+
+          // }
+        },
+        false
+      );
+
+      input03.addEventListener(
+        "focus",
+        function () {
+          input03.value = "";
+          input04.value = "";
+
+          p02.innerHTML = "";
+        },
+        false
+      );
+      input04.addEventListener(
+        "focus",
+        function () {
+          // input01.value = "";
+          input04.value = "";
+          p02.innerHTML = "";
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

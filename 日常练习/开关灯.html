@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn= document.getElementById("btn");
+            var mark= 0;
+            btn.addEventListener("click",function(){
+                if(mark == 0){
+                    document.body.style.backgroundColor = "#000";
+                    mark = 1;
+                }
+                else{
+                    document.body.style.backgroundColor = "#fff";
+                    mark = 0;
+                }
+            },false)
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">开关灯</button>
+</body>
+</html>

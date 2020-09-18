@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var timeoutId = setTimeout(function(){
+        //     alert("okok");
+        // },1000);
+
+        // clearTimeout(timeoutId);
+        // var a = setInterval(function(){
+        //     alert("okok");
+        // },1000);
+
+        // var num = 0;
+        // function creasenumber(){
+        //     num++;
+
+        //     if(num == 3){
+        //         clearInterval(a);
+        //     }
+           
+        // }
+
+        // 超时调用
+            var i = 1;
+            function ok(){
+                if(i <= 5){
+                    console.log(i++);
+                    setTimeout(ok,500);
+                }
+            }
+
+           ok();
+
+    //     // 定时调用
+    //     var i=1;
+    //   var time =  setInterval(function(){
+    //         if(i <= 5)
+    //         {
+    //             console.log(i++);
+    //         }
+    //         else{
+    //             clearInterval(time);
+    //         }
+    //     },500)
+
+
+
+
+     
+        
+
+        
+    </script>
+</body>
+</html>

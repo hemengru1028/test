@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* function Fn() {
+          var num = 500;
+          this.x = 100;
+      }
+          Fn.prototype.getX = function () {
+          console.log(this.x);
+      }
+          Fn.aaa = 1000;
+        //   console.log(Fn);
+        console.log(Fn.prototype);
+      
+          var f = new Fn;
+      
+         f.num // undefined 
+         console.log(f.num);
+         f.aaa // undefined
+         var res = Fn(); // res是undefined  Fn中的this是window */
+      window.onload = function(){
+
+        //   方法一：事件委托实现
+        var ul = document.querySelector("ul");
+        
+        ul.addEventListener("click",function(event){
+            var event = event || window.event;
+           var target = event.target || event.srcElement;
+           if(target.tagName.toLowerCase() === "li"){
+               console.log(target.innerHTML);
+           }
+        },false);
+
+
+        // 方法二
+        // var lis = document.querySelectorAll("li");
+        // var length = lis.length;
+        // for(var i=0; i<length; i++){
+        //     lis[i].addEventListener("click",function(){
+        //         console.log(this.innerHTML);
+        //     },false)
+        // }
+      }
+
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+    </ul>
+</body3
+</html>

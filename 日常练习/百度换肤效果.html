@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            /* 背景图片大小自适应 */
+            background-size: cover;
+        }
+
+        .box {
+
+            width: 650px;
+            height: 100px;
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: #fff;
+
+        }
+
+        .box li {
+            float: left;
+            margin: 0 4px;
+            cursor: pointer;
+
+        }
+
+        .box img {
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li><img src="../img/2.jpg" alt=""></li>
+        <li><img src="../img/微信图片_20200820153238.jpg" alt=""></li>
+        <li><img src="../img/4.jpg" alt=""></li>
+        <li><img src="../img/微信图片_20200513161724.png" alt=""></li>
+    </ul>
+
+    <script>
+        // var imgs = document.getElementsByTagName(img);
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+            document.body.style.backgroundImage = "url(" + this.src + ")";
+            }
+        }
+    </script>
+</body>
+
+</html>

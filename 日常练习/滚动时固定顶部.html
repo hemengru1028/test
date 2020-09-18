@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滚动时固定顶部</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 2000px;
+      }
+      .left {
+        width: 100px;
+        height: 300px;
+        background-color: aqua;
+      }
+      .fixed {
+        width: 550px;
+        height: 150px;
+        background-color: blanchedalmond;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left"></div>
+    <div class="fixed"></div>
+
+    <script>
+      var fixed = document.getElementsByClassName("fixed")[0];
+
+      // console.log(top);
+      window.onscroll = function () {
+        var scrolltop =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        // var top = fixed.offsetTop;
+        // var left = fixed.offsetLft;
+        if (scrolltop >= 300) {
+          fixed.style = "position:fixed; top:0; left:356px";
+        } else {
+          // top = "300px";
+          fixed.style = "position:realtive";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul></ul>
+
+    <script>
+      var result;
+      var ul = document.querySelector("ul");
+      var xmlhttp;
+      if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+          result = JSON.parse(xmlhttp.response);
+          var len = result.Search.length;
+          for (var i = 0; i < len; i++) {
+            var li = document.createElement("li");
+            li.innerHTML = result.Search[i].Title;
+            ul.appendChild(li);
+          }
+        }
+      };
+      xmlhttp.open(
+        "GET",
+        "https://www.omdbapi.com/?s=man&apikey=4a3b711b",
+        true
+      );
+      xmlhttp.send();
+    </script>
+  </body>
+</html>

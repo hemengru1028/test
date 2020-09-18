@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tab-list {
+        height: 36px;
+        width: 170px;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      .tab-list li {
+        float: left;
+        width: 85px;
+        height: 36px;
+        line-height: 36px;
+        /* border: 1px solid #; */
+        text-align: center;
+        cursor: pointer;
+      }
+      .current {
+        background-color: #c81623;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab-list">
+      <ul>
+        <li class="huiyi current">会议室</li>
+        <li class="cang">小仓库</li>
+      </ul>
+    </div>
+
+    <script>
+      var tabs = document.querySelector(".tab-list");
+      // var huiyi = document.getElementsByClassName("huiyi")[0];
+      // var cang = document.getElementsByClassName("cang")[0];
+      var li = document.getElementsByTagName("li");
+      var lens = li.length;
+      for (var i = 0; i < lens; i++) {
+        li[i].onclick = function () {
+          for (i = 0; i < lens; i++) {
+            li[i].className = "";
+          }
+          this.className = "  current";
+        };
+      }
+    </script>
+  </body>
+</html>

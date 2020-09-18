@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        
+    <meta charset="UTF-8" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+    <title>Document</title>
+  </head>
+  <body>
+        
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            // alert(xhr.responseText);
+            console.log(xhr.responseText);
+          } else {
+            alert("Request was unsuccessful :" + xhr.status);
+          }
+        }
+      };
+      xhr.open("post", "https://api.apiopen.top/developerLogin", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send("name=" + "peakchao" + "&passwd=" + "123456"); // httpRequest.send("keyword="+keyword+"&name="+name);
+    </script>
+  </body>
+</html>

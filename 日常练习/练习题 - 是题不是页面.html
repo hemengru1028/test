@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+
+<body>
+    <!-- <img src="./小熊奔跑案例/bear.png" alt="图片" title="哈哈哈">  在alt和title同时设置时，alt作为图片的替代文字出现，title是图片的解释文字。 -->
+    <script>
+        // // 求一个字符串的字符长度
+        // var str = "梦梦真可爱";
+        // var n = str.length;
+        // var bit = n;
+        // for(var i = 0; i < n; i++ ){
+        //     if(str.charCodeAt(i) >= 255){
+        //         bit++;
+        //     }
+        // }
+        // console.log(bit);
+
+        // var f = (
+        //     function f(){
+        //         return 1;
+        //     },
+        //     function g(){
+        //         return 2;
+        //     }
+        // )();
+        // console.log(typeof f);
+
+
+        // 自定义一个函数 type  判断数据类型
+
+        // function type(target) {
+        //     var template = {
+        //         "[object Array]" : "array",
+        //         "[object Object]" : "object",
+        //         "[object Number]" : "number - object",
+        //         "[object Boolean]" : "boolean - object",
+        //         "[object String]" : "string - object"
+        //     }
+        //     if(target === null){
+        //         return null;
+        //     }
+        //     if(typeof(target) == "object") {
+        //         var str = Object.prototype.toString.call(target);
+        //         return template[str];
+        //     }else{
+        //         return typeof(target);
+        //     }
+        // }
+
+        // 思路 1、判断是原型还是引用类
+        //      2、判断是数组
+        //         对象
+        //         包装类
+
+
+
+        // 数组去重   
+        // 思路：将数组的每一位当作一个新对象的属性名，如果属性名不存在  则赋值  若存在，进行下一个数值，最后将属性名push进一个新数组
+
+
+        // Array.prototype.unique = function(){
+        //     var temp = {},
+        //         arr = [],
+        //         len = this.length;
+        //     for(var i = 0; i < len; i++){
+        //         if(!temp[this[i]]){
+        //             temp[this[i]] = "abc";
+        //             arr.push(this[i]);
+        //         }
+        //     }
+        //     return arr;
+        // }
+
+
+        // this指向，作用域问题
+
+        // for(var i = 1; i <= 3; i++){ 
+        //     setTimeout(function(){
+        //         console.log(i);   
+        //     },0); 
+        // };
+
+        // 结果4 4 4
+
+        // var User = {
+        //     count: 1,
+        //     getCount: function() {
+        //         return this.count;
+        //     }
+        // };
+        // console.log(User.getCount());     1
+        // var func = User.getCount;
+        // console.log(func());          undefined
+
+
+        // var a = 100;  
+        // function test(){  
+        //     alert(a);      100
+        //     a = 10;  
+        //     alert(a);      10
+        // }  
+        // test();  
+        // alert(a);          10
+
+
+        // var a = 5;
+        // function test() { 
+        //     a = 0; 
+        //     alert(a); 
+        //     alert(this.a); 
+        //     var a;
+        //     alert(a); 
+        // }
+        // test();   0  5  0
+        // new test();  0  undefined  0
+
+        // var name = "222";
+        // var a = {
+        //     name:"111",
+        //     say:function(){
+        //         console.log(this.name);
+        //     }
+        // }
+        // var fun = a.say;
+        // fun();    222
+        // a.say();  111
+        // var b = {
+        //     name:"333",
+        //     say:function(fun) {
+        //         fun();
+        //     }
+        // }
+        // b.say(a.say);  222
+        // b.say = a.say;
+        // b.say();   333
+    </script>
+</body>
+
+</html>

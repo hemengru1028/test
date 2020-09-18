@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+.head {
+  width: 375px;
+  height: 60px;
+  background-color: #3a3632;
+}
+.head h3 {
+  text-align: center;
+  line-height: 60px;
+  color: aliceblue;
+}
+.container .first {
+  width: 375px;
+  height: 230px;
+  background-color: #577346;
+  background-image: url(../img/rh02-panel2-2x.jpg);
+  /* background-size: 375px 230px; */
+  background-size: cover;
+}
+.container .second {
+  background-color: #325c72;
+  background-image: url(../img/rh02-panel1-2x.jpg);
+  /* background-size: 375px 230px; */
+  background-size: cover;
+}
+.container h3 {
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+  color: aliceblue;
+}
+.container .content {
+  text-align: center;
+  margin-top: 15px;
+}
+.container .content .time {
+  margin-top: 10px;
+  position: absolute;
+  left: 86px;
+}
+.container .content input {
+  border-radius: 15%;
+  padding: 1px 0;
+  outline-style: none;
+  /* border: 0; */
+}
+.container .content button {
+  border-radius: 20%;
+}
+.container .content .add {
+  margin-top: 50px;
+}

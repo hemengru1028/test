@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自动打字效果</title>
+  </head>
+
+  <body>
+    <div class="text"></div>
+    <script>
+      var text = document.getElementsByClassName("text")[0];
+      var i = 0;
+      var str =
+        "防弹少年团（BTS）是BigHit Entertainment于2013年6月13日推出的韩国男子演唱组合,由金南俊、金硕珍、闵玧其、郑号锡、朴智旻、金泰亨、田柾国7位成员组成; 队长是金南俊，门面担当是金硕珍，我最爱的是金泰亨。主要成就包括第5届Melon音乐盛典最佳新人奖、第32届金唱片大赏唱片部门大赏、2017Mnet亚洲音乐大奖年度歌手奖、第15届韩国音乐大奖年度歌手奖、第25届公告牌音乐奖最佳社群媒体艺人奖。";
+      //   console.log(str.length);
+
+      function typing() {
+        if (i <= str.length) {
+          text.innerHTML = str.substring(0, i++) + "|";
+          // var timer = setInterval(typing, 200);
+        } else {
+          text.innerHTML = "";
+          // clearTimeout(timer);
+          i = 0;
+        }
+      }
+      var timer = setInterval(typing, 100);
+      typing(str);
+    </script>
+  </body>
+</html>

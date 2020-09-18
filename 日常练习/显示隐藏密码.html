@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="password">
+    <p>格式</p>
+    <script>
+
+        // 1是数字形式  0是密码形式
+        var input = document.querySelector("input");
+        var pnode = document.querySelector("p");
+        pnode.addEventListener("click",function(){
+            if(flag == 0){
+                input.type = "text";
+                pnode.innerHTML = "数字"
+                flag = 1;
+            }
+            else{
+                input.type = "password";
+                pnode.innerHTML = "密码";
+                flag = 0;
+            }
+
+        },false)
+        var flag = 0;
+       
+    </script>
+    
+</body>
+</html>

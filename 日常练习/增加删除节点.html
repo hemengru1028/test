@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //         console.log(1);
+        //         document.onclick = function(){
+        //             console.log("click");
+        //         }
+        //         console.log(2);
+        //         setTimeout(function(){
+        //             console.log(3);
+        //         },3000);
+        
+        
+        //         console.log(1);
+        //     setTimeout(function () {
+        //         console.log(3);
+        //     },0);
+        //     console.log(2);
+        
+        
+        // console.log(1);
+        //     document.onclick = function () {
+        //         console.log('click');
+        //     }
+        //     console.log(2);
+        //     setTimeout(function () {
+        //         console.log(3)
+        //     },3000)
+           
+                // var btn = document.getElementById("btn");
+                // btn.addEventListener("click",function(){
+                //     console.log("okok");
+                // },false);
+            
+    //                 const arr = [
+    //   {
+    //     name: "hello",
+    //     id: 1,
+    //     case: "sdf"
+    //   },
+    //   {
+    //     name: "helloq",
+    //     id: 2,
+    //     case: "sdf"
+    //   },
+    //   {
+    //     name: "hello",
+    //     id: 3,
+    //     case: "sdfa"
+    //   },
+    //   {
+    //     name: "hello1",
+    //     id: 4,
+    //     case: "sdf"
+    //   },
+    //   {
+    //     name: "   hello",
+    //     id: 5,
+    //     case: "sdf"
+    //   },
+    //   {
+    //     name: "hello1     ",
+    //     id: 6,
+    //     case: "sdf"
+    //   },
+    //   {
+    //     name: 'hello1',
+    //     id: 7,
+    //     case: 'sdf',
+    //   },
+    //   {
+    //     name: '   hello',
+    //     id: 7,
+    //     case: 'sdf',
+    //   },
+    // ];
+    
+    // arr.reverse();
+    // // console.log(arr);
+    // for(var i=0; i<arr.length; i++){
+    //     arr[i].class = "hello";
+    //     delete arr[i].case;
+    // }
+    // console.log(arr);
+    window.onload = function(){
+        var btn01= document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var box = document.getElementById("box");
+
+    
+        btn01.addEventListener("click",function(){
+            var newli = document.createElement("li");
+        newli.innerText = "node";
+        newli.className = "text";
+        box.appendChild(newli);
+        },false)
+
+        btn02.addEventListener("click",function(){
+            var text = box.lastElementChild;
+            box.removeChild(text);
+
+        },false)
+    }
+        
+            </script>
+  
+</head>
+<body>
+    <button id="btn01">增加</button>
+    <button id="btn02">删除</button>
+    <div id="box">
+        <li class="text">node</li>
+       
+    </div>
+</body>
+
+</html>
